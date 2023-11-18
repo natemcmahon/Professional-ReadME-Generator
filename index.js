@@ -2,6 +2,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
+
 // TODO: Create an array of questions for user input
 const questions = [
     {
@@ -55,62 +56,60 @@ function writeToFile(fileName, data) {
 }
 
 const generateReadME = (data) => {
-    return `# <Your-Project-Title>
+    return `
+# ${data.Title}
 
-    ## Description
+## Description
     
-    ${data.Description}
+${data.Description}
     
-    ## Table of Contents (Optional)
+## Table of Contents (Optional)
     
-    - [Installation](#installation)
-    - [Usage](#usage)
-    - [Credits](#credits)
-    - [License](#license)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Credits](#credits)
+- [License](#license)
     
-    ## Installation
+## Installation
     
-    ${data.Installation}
+${data.Installation}
     
-    ## Usage
+## Usage
     
-    ${data.Usage}
+${data.Usage}
     
-    'Add a screenshot here!'
+'Add a screenshot here!'
         
     
-    ## Credits
+## Credits
     
-    List your collaborators, if any, with links to their GitHub profiles.
+List your collaborators, if any, with links to their GitHub profiles.
     
-    If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
+If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
     
-    If you followed tutorials, include links to those here as well.
+If you followed tutorials, include links to those here as well.
     
-    ## License
+## License
     
-    ${data.License}    
-    ---
+${data.License}    
+ 
+## Badges
     
-    🏆 The previous sections are the bare minimum, and your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
+![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
     
-    ## Badges
+Badges aren't necessary, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
     
-    ![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
+## Features
     
-    Badges aren't necessary, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
+If your project has a lot of features, list them here.
     
-    ## Features
+## How to Contribute
     
-    If your project has a lot of features, list them here.
+If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.
     
-    ## How to Contribute
+## Tests
     
-    If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.
-    
-    ## Tests
-    
-    ${data.Testing}`
+${data.Testing}`
 }
 
 // TODO: Create a function to initialize app
