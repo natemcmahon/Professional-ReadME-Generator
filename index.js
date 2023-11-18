@@ -26,6 +26,11 @@ const questions = [
       name: 'Usage',
     },
     {
+        type: 'input',
+        message: 'Would you like to assign credit to anybody or anything other than yourself?',
+        name: 'Credits',
+    },
+    {
       type: 'input',
       message: 'What are the contribution guidelines?',
       name: 'ContributionGuidelines',
@@ -36,9 +41,10 @@ const questions = [
       name: 'Testing',
     },
     {
-      type: 'input',
+      type: 'list',
       message: 'Which License is the application covered under?',
       name: 'License',
+      choices: ['GPL', 'Apache', 'Copyleft', 'Open-source license' ],
     },
     {
       type: 'input',
@@ -69,6 +75,7 @@ ${data.Description}
 - [Usage](#usage)
 - [Credits](#credits)
 - [License](#license)
+
     
 ## Installation
     
@@ -83,11 +90,7 @@ ${data.Usage}
     
 ## Credits
     
-List your collaborators, if any, with links to their GitHub profiles.
-    
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
-    
-If you followed tutorials, include links to those here as well.
+${data.Credits}
     
 ## License
     
@@ -97,8 +100,8 @@ ${data.License}
     
 ![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
     
-Badges aren't necessary, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
-    
+Badges aren't necessary, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/).
+
 ## Features
     
 If your project has a lot of features, list them here.
