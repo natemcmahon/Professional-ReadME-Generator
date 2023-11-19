@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
+var picture;
 
 
 // TODO: Create an array of questions for user input
@@ -51,6 +52,11 @@ const questions = [
       message: 'What is your email?',
       name: 'Email',
     },
+    {
+        type: 'input',
+        message: 'What is your gitHub?',
+        name: 'GitHub',
+      },
   ];
 
 // TODO: Create a function to write README file
@@ -62,12 +68,29 @@ function writeToFile(fileName, data) {
 }
 
 const generateReadME = (data) => {
+    var license = data.License;
+    switch (license) {
+        case 'GPL': 
+            picture = './licenseImages/GPL.png';
+            break;
+        case 'Apache':
+            picture = './licenseImages/Apache.png';
+            break;
+        case 'Copyleft':
+            picture = './licenseImages/Copyleft.png';
+            break;
+        case 'Open-source license':
+            picture = './licenseImages/openSource.png';
+            break;
+    }
+    
     return `
 # ${data.Title}
 
 ## Description
     
 ${data.Description}
+ <img src = "${picture}" width="100px" style="padding-left: 25px">
     
 ## Table of Contents (Optional)
     
@@ -75,6 +98,11 @@ ${data.Description}
 - [Usage](#usage)
 - [Credits](#credits)
 - [License](#license)
+- [Badges](#Badges)
+- [Features](#Features)
+- [How to Contribute](#How to Contribute)
+- [Tests](#Tests)
+- [Questions](#Questions)
 
     
 ## Installation
@@ -94,7 +122,7 @@ ${data.Credits}
     
 ## License
     
-${data.License}    
+${data.License} is the license governing this document. Please refer to their documentation for reference regarding the use and redistribution of this application
  
 ## Badges
     
@@ -112,7 +140,12 @@ If you created an application or package and would like other developers to cont
     
 ## Tests
     
-${data.Testing}`
+${data.Testing}
+
+## Questions
+
+If you have any questions, feel free to reach out to me at ${data.Email} or reference my GitHub:
+[github.com/${data.GitHub}](github.com/${data.GitHub})`
 }
 
 // TODO: Create a function to initialize app
